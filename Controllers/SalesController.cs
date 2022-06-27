@@ -23,6 +23,10 @@ namespace SalesDataCharts.Controllers
         {
             return View();
         }
+        public IActionResult ShowMulitCharts()
+        {
+            return View();
+        }
         [HttpPost]
         public List<object> getSalesData()
         {

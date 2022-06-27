@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SalesDataCharts.styles.css" asp-append-version="true" />
+    <style>
+        .urlLinks li{
+            margin:10px;
+            background-color:green;
+            color:red;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,7 +26,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 urlLinks">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -31,6 +38,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Sales" asp-action="ShowSalesDataDB">Show Sales Data from DB</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Sales" asp-action="ShowMulitCharts">Show Sales Data from DB Show MulitCharts</a>
                         </li>
                     </ul>
                 </div>
