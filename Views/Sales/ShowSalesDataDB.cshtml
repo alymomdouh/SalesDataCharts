@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<input id="ID" value="show graph" type="button" />
+<br />
+<canvas id="myChart" style="max-width:200px;max-height:200px;"></canvas>
+<script type="text/javascript">
+    $(function(){
+     $("#ID").click(function(){
+         $.ajax({
+            type:"Post",
+            url:"/Sales/getSalesData",
+            data:"",
+            contextType:"application/json; charset=utf-8",
+            success:OnSuccessResult,
+            error:OnErrorResult
+         });
+         function OnSuccessResult(event){
+            debugger;
+            var labels=event[0];
+            var datalist=event[1];
+            var bgColors=["red","green","blue","orange","brown"];
+            new Chart("myChart",{
+                 type: 'bar',
+                 data:{
+                     labels:labels,
+                     datasets:[{
+                         backgroundColor:bgColors,
+                         data:datalist
+                     }]
+                 }
+            });
+         }
+         function OnErrorResult(data){
+             debugger;
+         }
+     });
+    });
+   // const ctx = document.getElementById('myChart').getContext('2d');
+</script>

@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace SalesDataCharts
 {
     public class Program
@@ -8,7 +10,10 @@ namespace SalesDataCharts
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+            builder.Services.AddDbContext<SalesDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            ) ;
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
